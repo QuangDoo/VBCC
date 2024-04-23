@@ -1,0 +1,14 @@
+@import './base.css';
+
+#app {
+  margin: 0 auto;
+  font-weight: normal;
+}
+
+.active-link {
+  color: #f0fe52 !important;
+}
+
+.exact-active-link {
+  color: white;
+}

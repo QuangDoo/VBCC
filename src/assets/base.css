@@ -1,0 +1,103 @@
+/* color palette from <https://github.com/vuejs/theme> */
+:root {
+  --vt-c-white: #ffffff;
+  --vt-c-white-soft: #f8f8f8;
+  --vt-c-white-mute: #f2f2f2;
+  --vt-c-black: #000000;
+
+  --vt-c-indigo: #2c3e50;
+
+  /* custom color */
+  --vt-c-primary-10-color: #11277c;
+  --vt-c-primary-20-color: #0000c5;
+  --vt-c-secondary-color: #c6deff;
+  --vt-c-danger-color: #ad1206;
+  --vt-c-neutral-color: #9ba3ac;
+}
+
+/* semantic color variables for this project */
+:root {
+  --color-background: var(--vt-c-white);
+
+  --color-border: var(--vt-c-neutral-color);
+  --color-border-hover: var(--vt-c-neutral-color);
+
+  --color-text: var(--vt-c-black);
+  --section-gap: 160px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--vt-c-white);
+  transition:
+    color 0.5s,
+    background-color 0.5s;
+  line-height: 1.6;
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    sans-serif;
+  font-size: 15px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.container {
+  width: 100%;
+  padding: 0 15px;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width: 1850px) {
+  .container {
+    max-width: 1580px;
+  }
+}
+
+.text {
+  background: -webkit-linear-gradient(var(--vt-c-primary-10-color), var(--vt-c-primary-20-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
