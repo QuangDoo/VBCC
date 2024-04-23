@@ -41,6 +41,7 @@ import PhoneIcon from '@/assets/icons/PhoneIcon.vue'
   overflow: hidden;
   width: 100%;
   height: auto;
+  flex-shrink: 0;
 }
 .footer-container {
   display: flex;
