@@ -40,7 +40,6 @@ body {
   transition:
     color 0.5s,
     background-color 0.5s;
-  line-height: 1.6;
   font-family:
     Inter,
     -apple-system,
@@ -54,11 +53,11 @@ body {
     'Droid Sans',
     'Helvetica Neue',
     sans-serif;
-  font-size: 15px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 .container {
   width: 100%;
   padding: 0 15px;
@@ -97,7 +96,17 @@ body {
 }
 
 .text {
-  background: -webkit-linear-gradient(var(--vt-c-primary-10-color), var(--vt-c-primary-20-color));
+  /* Gradient background */
+  background-image: -webkit-linear-gradient(
+    var(--vt-c-primary-10-color),
+    var(--vt-c-primary-20-color)
+  );
+
+  /* Making the text transparent so the background is visible */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
+  /* Additional browser support */
+  background-clip: text;
+  color: transparent;
 }

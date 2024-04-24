@@ -1,5 +1,5 @@
 <template>
-  <BreadcumbApp class="breadcumb" />
+  <BreadcumbApp />
 
   <TitleApp :title="'Giới thiệu'" />
 
@@ -48,7 +48,7 @@ import TitleApp from '@/components/TitleApp.vue'
 
 <style scoped>
 .breadcumb {
-  padding: 18px 0;
+  margin-bottom: 18px;
 }
 .aside {
   border: 5px solid #f3f3f3;

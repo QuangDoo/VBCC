@@ -1,49 +1,49 @@
+<script setup lang="ts">
+import { RouterLink, useRoute } from 'vue-router'
+
+export interface TabAppProps {
+  items: { key: string; label: string; path: string }[]
+}
+
+const { items } = defineProps<TabAppProps>()
+
+const route = useRoute()
+</script>
+
 <template>
-  <div v-if="hasUnderline">
-    <div class="title-container">
-      <slot name="icon" />
-      <h1 class="title text">{{ title }}</h1>
-    </div>
-
-    <div class="divider" />
-  </div>
-
-  <div v-else>
-    <div class="title-container">
-      <slot name="icon" />
-
-      <h1 class="title title-no-underline">{{ title }}</h1>
+  <div class="tabs-container">
+    <div
+      v-for="item in items"
+      :key="item.key"
+      class="tab-item text"
+      :class="{ active: route.path === item.path }"
+    >
+      <RouterLink :to="item.path" :class="{ activeText: route.path === item.path }">
+        {{ item.label }}
+      </RouterLink>
     </div>
   </div>
 </template>
 
-<script setup lang="ts">
-interface TitleProps {
-  title: string
-  hasUnderline?: boolean
-}
-const { title, hasUnderline } = withDefaults(defineProps<TitleProps>(), {
-  hasUnderline: true
-})
-</script>
-
 <style scoped>
-.title-container {
+.tabs-container {
   display: flex;
   align-items: center;
-  gap: 8px;
-  width: 100%;
+  gap: 12px;
+  margin-left: 4px;
 }
-.title {
+.tab-item {
   font-weight: 700;
-  font-size: 20px;
-  text-transform: uppercase;
+  padding: 12px;
+  border-radius: 4px;
+  box-shadow: 0px 2px 8px 0px #00000040;
 }
-.title-no-underline {
-  background-color: #c6deff;
-  padding: 10px 20px;
-  width: 100%;
 
+.activeText {
+  font-weight: 700;
+}
+
+.active {
   /* Setting the gradient for the text */
   background-image: linear-gradient(
     to right,
@@ -62,7 +62,7 @@ const { title, hasUnderline } = withDefaults(defineProps<TitleProps>(), {
   /* Additional styles to ensure cross-browser compatibility */
   position: relative;
 }
-.title-no-underline::before {
+.active::before {
   content: '';
   position: absolute;
   top: 0;
@@ -72,10 +72,6 @@ const { title, hasUnderline } = withDefaults(defineProps<TitleProps>(), {
   background-color: #c6deff;
   z-index: -1;
   border-radius: 2px;
-}
-.divider {
-  width: 100%;
-  height: 5px;
-  background-color: #102bba;
+  box-shadow: 0px 2px 8px 0px #00000040;
 }
 </style>

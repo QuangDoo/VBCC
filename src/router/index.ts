@@ -4,10 +4,22 @@ import IntroductionView from '@/views/IntroductionView.vue'
 import LookupView from '@/views/LookupView.vue'
 import NewsView from '@/views/NewsView.vue'
 import ServiceView from '@/views/ServiceView.vue'
+import CertificateNumberTab from '@/components/LookupView/CertificateNumberTab.vue'
+import NameTab from '@/components/LookupView/NameTab.vue'
+import UserIdCardNumberTab from '@/components/LookupView/UserIdCardNumberTab.vue'
 
 const routes: RouteRecordRaw[] = [
   { path: path.introduction, component: IntroductionView, name: 'Giới thiệu' },
-  { path: path.lookup, component: LookupView, name: 'Tra cứu' },
+  {
+    path: path.lookup,
+    component: LookupView,
+    name: 'Tra cứu',
+    children: [
+      { path: '', component: CertificateNumberTab, name: 'Tra cứu theo số hiệu' },
+      { path: 'tra-cuu-theo-ten', component: NameTab, name: 'Tra cứu theo tên' },
+      { path: 'tra-cuu-theo-cccd', component: UserIdCardNumberTab, name: 'Tra cứu theo CCCD' }
+    ]
+  },
   { path: path.news, component: NewsView, name: 'Tin tức' },
   { path: path.services, component: ServiceView, name: 'dịch vụ' }
 ]

@@ -12,7 +12,7 @@
 
       <nav class="header__nav">
         <RouterLink
-          to="/introduction"
+          to="/"
           activeClass="active-link"
           exactActiveClass="exact-active-link"
           class="header__nav__link"

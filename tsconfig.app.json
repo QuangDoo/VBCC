@@ -10,5 +10,6 @@
     "paths": {
       "@/*": ["./src/*"]
     }
-  }
+  },
+  "types": ["webpack-env", "@types/node", "@vue/runtime-dom"]
 }
