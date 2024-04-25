@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@vuepic/vue-datepicker": "^8.5.0",
+    "axios": "^1.6.8",
     "v-calendar": "^3.1.2",
     "vue": "^3.4.24",
     "vue-router": "^4.3.0"

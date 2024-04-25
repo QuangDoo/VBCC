@@ -10,13 +10,10 @@ interface InputAppProps {
   required?: boolean
 }
 
-const { error, label, placeholder, onChange, type, required } = withDefaults(
-  defineProps<InputAppProps>(),
-  {
-    placeholder: 'Nhập ...',
-    type: 'text'
-  }
-)
+const { error, label, placeholder, onChange, type } = withDefaults(defineProps<InputAppProps>(), {
+  placeholder: 'Nhập ...',
+  type: 'text'
+})
 
 const isFocus = ref<boolean>(false)
 const inputValue = ref<string>('')
@@ -40,11 +37,11 @@ function onChangeInput(event: Event) {
 </script>
 
 <template>
-  <div class="container">
+  <div>
     <div class="label-container">
       <label :for="label" class="label">{{ label }}</label>
 
-      <span class="requeired">*</span>
+      <span class="requeired" v-if="required">*</span>
     </div>
 
     <div class="input-container" :class="{ focus: isFocus, error: error }">
@@ -68,11 +65,6 @@ function onChangeInput(event: Event) {
 </template>
 
 <style scoped>
-.container {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
 .label-container {
   display: flex;
   gap: 1px;
@@ -80,6 +72,7 @@ function onChangeInput(event: Event) {
 .label {
   font-size: 16px;
   font-weight: 600;
+  margin-bottom: 8px;
 }
 .requeired {
   color: #e02b1d;

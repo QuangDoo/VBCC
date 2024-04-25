@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/no-parsing-error -->
 <script setup lang="ts">
 import CalendarIcon from '@/assets/icons/CalendarIcon.vue'
 import InputApp from '@/components/InputApp.vue'
@@ -6,7 +7,11 @@ import '@vuepic/vue-datepicker/dist/main.css'
 import { ref } from 'vue'
 
 const date = ref(new Date())
-const { label, required } = defineProps<{ label: string; required?: boolean }>()
+const { label, required, placeholder } = defineProps<{
+  label: string
+  required?: boolean
+  placeholder?: string
+}>()
 </script>
 <template>
   <div class="date-picker">
@@ -20,7 +25,7 @@ const { label, required } = defineProps<{ label: string; required?: boolean }>()
     >
       <template #dp-input="{ value }">
         <InputApp
-          placeholder="Chọn năm"
+          :placeholder="placeholder"
           :label="label"
           :required="required"
           readonly
@@ -33,6 +38,7 @@ const { label, required } = defineProps<{ label: string; required?: boolean }>()
         </InputApp>
       </template>
 
+      <!-- @vue-ignore -->
       <template #clear-icon="{ clear }">
         <p @click="clear" class="dp__clear_icon">x</p>
       </template>
@@ -72,7 +78,7 @@ const { label, required } = defineProps<{ label: string; required?: boolean }>()
 .dp__clear_icon {
   position: absolute;
   font-size: 30px;
-  right: 32px;
-  transform: translateY(-7px);
+
+  transform: translateY(-12px) translateX(-17px);
 }
 </style>
