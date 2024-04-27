@@ -12,41 +12,145 @@ import ViewBox from '@/components/ViewBox.vue'
 
 import { ref } from 'vue'
 
-const year = ref(new Date().getFullYear())
+const year = ref()
 
-interface DataType {
-  name: string
-  age: number
-  address: string
-  danhXung: string
-}
+type DataKey =
+  | 'ten'
+  | 'ngaySinh'
+  | 'noiSinh'
+  | 'gioiTinh'
+  | 'danToc'
+  | 'xepLoai'
+  | 'soHieuVanBang'
+  | 'soVaoSoGoc'
+
+type DataType = Record<DataKey, string>
 
 const columns: TableAppProps<DataType>['columns'] = [
-  { title: 'Tên', key: 'name', dataIndex: 'name' },
-  { title: 'Tuổi', key: 'age', dataIndex: 'age' },
-  { title: 'Địa chỉ', key: 'address', dataIndex: 'address' },
+  { title: 'STT', key: 'stt', dataIndex: 'stt', width: 10, render: (_, index) => index + 1 },
+  { title: 'Họ và tên người học', key: 'ten', dataIndex: 'ten', fixed: 'left' },
+  { title: 'Ngày tháng năm sinh', key: 'ngaySinh', dataIndex: 'ngaySinh' },
   {
-    title: 'Danh xưng',
-    key: 'danhXung',
-    dataIndex: 'danhXung'
+    title: 'Nơi sinh',
+    key: 'noiSinh',
+    dataIndex: 'noiSinh'
+  },
+  {
+    title: 'Giới tính',
+    key: 'gioiTinh',
+    dataIndex: 'gioiTinh'
+  },
+  {
+    title: 'Dân tộc',
+    key: 'danToc',
+    dataIndex: 'danToc'
+  },
+  {
+    title: 'Xếp loại',
+    key: 'xepLoai',
+    dataIndex: 'xepLoai'
+  },
+  {
+    title: 'Số hiệu VBCC',
+    key: 'soHieuVanBang',
+    dataIndex: 'soHieuVanBang'
+  },
+  {
+    title: 'Số vào sổ gốc',
+    key: 'soVaoSoGoc',
+    dataIndex: 'soVaoSoGoc'
   }
 ]
 
 const data: DataType[] = [
-  { name: 'Mến', address: 'Sạp số 6', age: 100, danhXung: 'Mến gà' },
-  { name: 'Mến', address: 'Sạp số 6', age: 100, danhXung: 'Mến gà' },
-  { name: 'Mến', address: 'Sạp số 6', age: 100, danhXung: 'Mến gà' },
-  { name: 'Mến', address: 'Sạp số 6', age: 100, danhXung: 'Mến gà' },
-  { name: 'Mến', address: 'Sạp số 6', age: 100, danhXung: 'Mến gà' },
-  { name: 'Mến', address: 'Sạp số 6', age: 100, danhXung: 'Mến gà' }
+  {
+    ten: 'Tướng Thị Văn Mêns',
+    ngaySinh: '10/10/2000',
+    noiSinh: 'Bến Tre',
+    gioiTinh: 'Nữ',
+    danToc: 'Kinh',
+    xepLoai: 'XH',
+    soHieuVanBang: '123',
+    soVaoSoGoc: '123'
+  },
+  {
+    ten: 'Tướng Thị Văn Mêns',
+    ngaySinh: '10/10/2000',
+    noiSinh: 'Bến Tre',
+    gioiTinh: 'Nữ',
+    danToc: 'Kinh',
+    xepLoai: 'XH',
+    soHieuVanBang: '123',
+    soVaoSoGoc: '123'
+  },
+  {
+    ten: 'Tướng Thị Văn Mêns',
+    ngaySinh: '10/10/2000',
+    noiSinh: 'Bến Tre',
+    gioiTinh: 'Nữ',
+    danToc: 'Kinh',
+    xepLoai: 'XH',
+    soHieuVanBang: 'S000934',
+    soVaoSoGoc: '2015/05/05964'
+  },
+  {
+    ten: 'Tướng Thị Văn Mêns',
+    ngaySinh: '10/10/2000',
+    noiSinh: 'Bến Tre',
+    gioiTinh: 'Nữ',
+    danToc: 'Kinh',
+    xepLoai: 'XH',
+    soHieuVanBang: 'S000934',
+    soVaoSoGoc: '2015/05/05964'
+  },
+  {
+    ten: 'Tướng Thị Văn Mêns',
+    ngaySinh: '10/10/2000',
+    noiSinh: 'Bến Tre',
+    gioiTinh: 'Nữ',
+    danToc: 'Kinh',
+    xepLoai: 'XH',
+    soHieuVanBang: 'S000934',
+    soVaoSoGoc: '2015/05/05964'
+  },
+  {
+    ten: 'Tướng Thị Văn Mêns',
+    ngaySinh: '10/10/2000',
+    noiSinh: 'Bến Tre',
+    gioiTinh: 'Nữ',
+    danToc: 'Kinh',
+    xepLoai: 'XH',
+    soHieuVanBang: 'S000934',
+    soVaoSoGoc: '2015/05/05964'
+  },
+  {
+    ten: 'Tướng Thị Văn Mêns',
+    ngaySinh: '10/10/2000',
+    noiSinh: 'Bến Tre',
+    gioiTinh: 'Nữ',
+    danToc: 'Kinh',
+    xepLoai: 'XH',
+    soHieuVanBang: 'S000934',
+    soVaoSoGoc: '2015/05/05964'
+  }
 ]
+
+function handleClearYear() {
+  year.value = ''
+}
 </script>
 
 <template>
   <div class="certificate-number-tab">
     <ViewBox>
       <form class="form">
-        <DateTimePicker label="Năm tốt nghiệp" required v-model="year" year-picker />
+        <DateTimePicker
+          label="Năm tốt nghiệp"
+          required
+          v-model="year"
+          year-picker
+          @clear="handleClearYear"
+        />
         <InputApp
           label="Số hiệu văn bằng/chứng chỉ"
           placeholder="Nhập số hiệu văn bằng"
@@ -81,7 +185,7 @@ const data: DataType[] = [
 
     <ResultSearchText :length="0" style="margin-top: 20px" />
 
-    <TableApp :columns="columns" :dataSource="data" style="margin-top: 12px" />
+    <TableApp :columns="columns" :dataSource="data" style="margin-top: 12px" :scrollX="992" />
   </div>
 </template>
 

@@ -12,16 +12,19 @@ const route = useRoute()
 
 <template>
   <div class="tabs-container">
-    <div
+    <RouterLink
       v-for="item in items"
       :key="item.key"
-      class="tab-item text"
-      :class="{ active: route.path === item.path }"
+      class="tab-item"
+      :to="item.path"
+      :class="{
+        activeText: route.path === item.path,
+        active: route.path === item.path,
+        text: route.path === item.path
+      }"
     >
-      <RouterLink :to="item.path" :class="{ activeText: route.path === item.path }">
-        {{ item.label }}
-      </RouterLink>
-    </div>
+      {{ item.label }}
+    </RouterLink>
   </div>
 </template>
 
@@ -33,10 +36,11 @@ const route = useRoute()
   margin-left: 4px;
 }
 .tab-item {
-  font-weight: 700;
   padding: 12px;
   border-radius: 4px;
   box-shadow: 0px 2px 8px 0px #00000040;
+  text-decoration: none;
+  color: black !important;
 }
 
 .activeText {

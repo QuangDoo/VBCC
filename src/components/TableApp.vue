@@ -1,17 +1,25 @@
 <template>
-  <div>
-    <table width="100%">
+  <div style="overflow-x: auto">
+    <table :style="{ minWidth: !!scrollX ? `${scrollX}px` : '100%' }">
       <thead class="header">
         <tr>
-          <th v-for="column in columns" :key="column.key">
+          <th
+            v-for="column in columns"
+            :key="column.key"
+            :style="{ width: `${column.width}px`, whiteSpace: 'nowrap' }"
+          >
             {{ column.title }}
           </th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="(item, index) in dataSource" :key="index">
-          <td v-for="column in columns" :key="column.key">
-            {{ item[column.dataIndex] }}
+          <td
+            v-for="column in columns"
+            :key="column.key"
+            :style="{ textAlign: `${column.fixed || 'center'}` }"
+          >
+            {{ column.render ? column.render(item, index) : item[column.dataIndex] }}
           </td>
         </tr>
       </tbody>
@@ -20,16 +28,17 @@
 </template>
 
 <script setup lang="ts" generic="DataType">
-import type { JSX } from 'vue/jsx-runtime'
-
 export interface TableAppProps<DataType> {
   columns: {
     title: string
     dataIndex: string
     key: string
-    render?: (item: DataType) => JSX.Element
+    render?: (item: DataType, index: number) => any
+    width?: number | string
+    fixed?: 'left' | 'right' | 'center'
   }[]
   dataSource: DataType[]
+  scrollX?: number
 }
 
 defineProps<TableAppProps<DataType>>()
@@ -39,6 +48,10 @@ defineProps<TableAppProps<DataType>>()
 .header {
   background-image: linear-gradient(to right, #11277c, #0000c5);
   color: white;
+}
+
+.table-container {
+  overflow-x: auto;
 }
 
 table {

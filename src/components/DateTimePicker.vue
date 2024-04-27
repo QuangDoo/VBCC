@@ -4,23 +4,26 @@ import CalendarIcon from '@/assets/icons/CalendarIcon.vue'
 import InputApp from '@/components/InputApp.vue'
 import VueDatePicker from '@vuepic/vue-datepicker'
 import '@vuepic/vue-datepicker/dist/main.css'
-import { ref } from 'vue'
 
-const date = ref(new Date())
-const { label, required, placeholder } = defineProps<{
-  label: string
-  required?: boolean
-  placeholder?: string
-}>()
+withDefaults(
+  defineProps<{
+    label: string
+    required?: boolean
+    placeholder?: string
+    clearIcon?: boolean
+  }>(),
+  { clearIcon: true }
+)
+
+defineEmits(['clear'])
 </script>
 <template>
   <div class="date-picker">
     <VueDatePicker
       text-input
       style="width: 100%"
-      v-model="date"
       auto-apply
-      :action-row="{ showNow: false }"
+      :action-row="{ showNow: false, showClear: false }"
       v-bind="$attrs"
     >
       <template #dp-input="{ value }">
@@ -33,14 +36,22 @@ const { label, required, placeholder } = defineProps<{
           :value="value"
         >
           <template #suffix>
-            <CalendarIcon />
+            <CalendarIcon v-if="!value" />
+
+            <button
+              class=""
+              v-if="clearIcon && value"
+              style="font-size: 16px opacity: 0.5 outline: none"
+              @click="$emit('clear')"
+            >
+              x
+            </button>
           </template>
         </InputApp>
       </template>
 
-      <!-- @vue-ignore -->
-      <template #clear-icon="{ clear }">
-        <p @click="clear" class="dp__clear_icon">x</p>
+      <template #clear-icon>
+        {{ null }}
       </template>
 
       <template #clock-icon>
