@@ -21,7 +21,12 @@ const routes: RouteRecordRaw[] = [
     ]
   },
   { path: path.news, component: NewsView, name: 'Tin tức' },
-  { path: path.services, component: ServiceView, name: 'dịch vụ' }
+  {
+    path: path.services, component: ServiceView, name: 'dịch vụ',  children: [
+      { path: '', component: CertificateNumberTab, name: 'Tra cứu theo số hiệu' },
+      { path: 'tra-cuu-theo-ten', component: NameTab, name: 'Tra cứu theo tên' },
+      { path: 'tra-cuu-theo-cccd', component: UserIdCardNumberTab, name: 'Tra cứu theo CCCD' }
+    ]}
 ]
 
 const router = createRouter({
