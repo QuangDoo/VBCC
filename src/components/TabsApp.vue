@@ -41,6 +41,8 @@ const route = useRoute()
   box-shadow: 0px 2px 8px 0px #00000040;
   text-decoration: none;
   color: black !important;
+  font-size: 12px;
+  text-align: center;
 }
 
 .activeText {
@@ -77,5 +79,17 @@ const route = useRoute()
   z-index: -1;
   border-radius: 2px;
   box-shadow: 0px 2px 8px 0px #00000040;
+}
+
+@media (min-width: 768px) {
+  .tab-item {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .tab-item {
+    font-size: 16px;
+  }
 }
 </style>

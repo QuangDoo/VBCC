@@ -5,6 +5,7 @@
       placeholder="Nhập mã xác thực"
       :required="true"
       class="authentication-input"
+      v-bind="$attrs"
     />
 
     <CapchaSolver />

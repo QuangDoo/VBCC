@@ -13,6 +13,7 @@
 
         <p class="footer__right-text"><PhoneIcon />Số điện thoại: 090293232</p>
       </div>
+
       <div class="footer__left">
         <p class="footer__left-left">Đang online: 1000000</p>
         <p class="footer__left-left">Tổng số lượt truy cập: 1.280</p>
@@ -45,7 +46,8 @@ import PhoneIcon from '@/assets/icons/PhoneIcon.vue'
 }
 .footer-container {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .footer-background-image-right {
@@ -91,20 +93,40 @@ import PhoneIcon from '@/assets/icons/PhoneIcon.vue'
   font-weight: 700;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  justify-content: end;
+  gap: 10px;
 }
 .footer__left-left {
-  font-size: 14px;
-  font-family: 400;
-  display: inline-flex;
+  font-size: 13px;
   gap: 8px;
-  align-items: center;
 }
 .footer__copyright {
   font-size: 14px;
   color: #ffffff;
   opacity: 0.6;
   text-align: center;
+}
+
+@media (min-width: 768px) {
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .footer__left-left {
+    font-size: 14px;
+    gap: 8px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .button-label {
+    font-size: 16px;
+  }
+  .footer__left-left {
+    font-size: 16px;
+    gap: 8px;
+  }
 }
 </style>

@@ -17,7 +17,14 @@
           <td
             v-for="column in columns"
             :key="column.key"
-            :style="{ textAlign: `${column.fixed || 'center'}` }"
+            :style="{
+              textAlign: `${column.fixed || 'center'}`,
+              maxWidth: `${column.width}px`,
+              textOverflow: 'ellipsis',
+              overflow: 'hidden',
+              whiteSpace: 'nowrap'
+            }"
+            :title="column.ellipsis ? item[column.dataIndex] : ''"
           >
             {{ column.render ? column.render(item, index) : item[column.dataIndex] }}
           </td>
@@ -36,6 +43,7 @@ export interface TableAppProps<DataType> {
     render?: (item: DataType, index: number) => any
     width?: number | string
     fixed?: 'left' | 'right' | 'center'
+    ellipsis?: boolean
   }[]
   dataSource: DataType[]
   scrollX?: number
@@ -80,9 +88,31 @@ thead {
 thead th {
   padding: 8px;
   text-align: center;
+  font-size: 14px;
 }
 
 tbody td {
   padding: 10px;
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  thead th {
+    font-size: 16px;
+  }
+
+  tbody td {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  thead th {
+    font-size: 18px;
+  }
+
+  tbody td {
+    font-size: 18px;
+  }
 }
 </style>

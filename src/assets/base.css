@@ -60,18 +60,19 @@ body {
 
 .container {
   width: 100%;
-  padding: 0 15px;
+  padding: 12px 10px;
   margin: 0 auto;
   max-width: 100%;
 }
 
-@media (min-width: 576px) {
+@media (max-width: 575px) {
   .container {
     max-width: 540px;
+    
   }
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .container {
     max-width: 720px;
   }
@@ -80,12 +81,14 @@ body {
 @media (min-width: 992px) {
   .container {
     max-width: 960px;
+  
   }
 }
 
 @media (min-width: 1200px) {
   .container {
     max-width: 1140px;
+
   }
 }
 

@@ -40,13 +40,14 @@ defineProps<ButtonAppProps>()
   align-items: center;
   gap: 8px;
   cursor: pointer;
+  justify-content: center;
 }
 .loading-overlay {
   background-color: rgba(0, 0, 0, 0.1); /* Adds a dark overlay */
   pointer-events: none; /* Optional: Disables interaction */
 }
 .button-label {
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 400;
 }
 .primary {
@@ -63,5 +64,17 @@ defineProps<ButtonAppProps>()
   background-color: grey;
   background-image: none;
   cursor: not-allowed;
+}
+
+@media (min-width: 768px) {
+  .button-label {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .button-label {
+    font-size: 16px;
+  }
 }
 </style>

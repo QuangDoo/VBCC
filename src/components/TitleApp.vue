@@ -36,7 +36,7 @@ const { title, hasUnderline } = withDefaults(defineProps<TitleProps>(), {
 }
 .title {
   font-weight: 700;
-  font-size: 20px;
+  font-size: 14px;
   text-transform: uppercase;
 }
 .title-no-underline {
@@ -77,5 +77,17 @@ const { title, hasUnderline } = withDefaults(defineProps<TitleProps>(), {
   width: 100%;
   height: 5px;
   background-color: #102bba;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .title {
+    font-size: 20px;
+  }
 }
 </style>

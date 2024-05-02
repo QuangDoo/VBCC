@@ -44,4 +44,20 @@ defineProps<CheckboxAppProps>()
   top: -6px; /* Vertical position of the check mark */
   font-size: 16px; /* Size of the check mark */
 }
+
+.label {
+  font-size: 14px; /* Size of the check mark */
+}
+
+@media (min-width: 768px) {
+  .label {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .label {
+    font-size: 16px;
+  }
+}
 </style>

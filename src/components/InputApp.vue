@@ -70,7 +70,7 @@ function onChangeInput(event: Event) {
   gap: 1px;
 }
 .label {
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 600;
   margin-bottom: 8px;
 }
@@ -85,7 +85,7 @@ function onChangeInput(event: Event) {
   border: 1px solid #e02b1d !important;
 }
 .input-container {
-  padding: 0px 12px;
+  padding: 8px 12px;
   border: 1px solid #9ba3ac;
   border-radius: 2px;
   width: unset;
@@ -106,5 +106,17 @@ function onChangeInput(event: Event) {
 .error-text {
   color: #e02b1d;
   font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  .label {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .label {
+    font-size: 16px;
+  }
 }
 </style>

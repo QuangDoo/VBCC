@@ -60,7 +60,7 @@ import ResultSearchText from '@/components/ResultSearchText.vue'
 import SelectApp from '@/components/SelectApp.vue'
 import type { TableAppProps } from '@/components/TableApp.vue'
 import TableApp from '@/components/TableApp.vue'
-import ViewBox from '@/components/ViewBox.vue'
+import ViewBox from '@/components/BoxView.vue'
 import { ref } from 'vue'
 
 const year = ref(new Date().getFullYear())

@@ -5,7 +5,7 @@
     </template>
   </TitleApp>
 
-  <StepsBar :labels="steps" :active="0" style="margin: 20px 0px" />
+  <StepsBar :labels="steps" :active="1" style="margin: 20px 0px" />
 
   <TabsApp :items="tabs" />
 
@@ -22,19 +22,22 @@ import { RouterView } from 'vue-router'
 const steps: string[] = ['Thông tin văn bằng, chứng chỉ', 'Thông tin đăng ký', 'Phiếu đăng ký']
 const tabs: TabAppProps['items'] = [
   {
-    key: '1',
+    key: 'certificate-number',
     label: 'Tra cứu theo số hiệu',
-    path: '/services/tra-cuu-so-hieu'
+    // components/ServiesView/CertificateNumberTab.vue
+    path: '/services/tra-cuu-theo-so-hieu'
   },
   {
-    key: '2',
+    key: 'name',
     label: 'Tra cứu theo tên',
-    path: '/services/tra-cuu-name'
+    // components/ServiesView/NameTab.vue
+    path: '/services/tra-cuu-theo-ten'
   },
   {
-    key: '3',
+    key: 'user-id-card-number',
     label: 'Tra cứu theo CCCD',
-    path: '/services/tra-cuu-cccd'
+    // components/ServiesView/UserIdCardNumberTab.vue
+    path: '/services/tra-cuu-theo-cccd'
   }
 ]
 </script>

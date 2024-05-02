@@ -13,6 +13,5 @@
   flex-direction: column;
   flex-grow: 1;
   overflow-y: auto;
-  padding: 24px 0px;
 }
 </style>

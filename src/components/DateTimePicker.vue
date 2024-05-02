@@ -18,46 +18,47 @@ withDefaults(
 defineEmits(['clear'])
 </script>
 <template>
-  <div class="date-picker">
-    <VueDatePicker
-      text-input
-      style="width: 100%"
-      auto-apply
-      :action-row="{ showNow: false, showClear: false }"
-      v-bind="$attrs"
-    >
-      <template #dp-input="{ value }">
-        <InputApp
-          :placeholder="placeholder"
-          :label="label"
-          :required="required"
-          readonly
-          type="text"
-          :value="value"
-        >
-          <template #suffix>
-            <CalendarIcon v-if="!value" />
+  <div>
+    <div class="date-picker" style="height: 69px">
+      <VueDatePicker
+        text-input
+        auto-apply
+        :action-row="{ showNow: false, showClear: false }"
+        v-bind="$attrs"
+      >
+        <template #dp-input="{ value }">
+          <InputApp
+            :placeholder="placeholder"
+            :label="label"
+            :required="required"
+            readonly
+            type="text"
+            :value="value"
+          >
+            <template #suffix>
+              <CalendarIcon v-if="!value" />
 
-            <button
-              class=""
-              v-if="clearIcon && value"
-              style="font-size: 16px opacity: 0.5 outline: none"
-              @click="$emit('clear')"
-            >
-              x
-            </button>
-          </template>
-        </InputApp>
-      </template>
+              <button
+                class=""
+                v-if="clearIcon && value"
+                style="font-size: 16px; outline: none; opacity: 0.5"
+                @click="$emit('clear')"
+              >
+                x
+              </button>
+            </template>
+          </InputApp>
+        </template>
 
-      <template #clear-icon>
-        {{ null }}
-      </template>
+        <template #clear-icon>
+          {{ null }}
+        </template>
 
-      <template #clock-icon>
-        {{ null }}
-      </template>
-    </VueDatePicker>
+        <template #clock-icon>
+          {{ null }}
+        </template>
+      </VueDatePicker>
+    </div>
   </div>
 </template>
 
@@ -89,7 +90,6 @@ defineEmits(['clear'])
 .dp__clear_icon {
   position: absolute;
   font-size: 30px;
-
   transform: translateY(-12px) translateX(-17px);
 }
 </style>

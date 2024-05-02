@@ -1,10 +1,10 @@
 <template>
   <div class="steps-container">
     <div v-for="(step, index) in labels" :key="step" class="step-item" ref="stepRefs">
-      <div class="step-number" :class="{ active: index <= active }">
+      <div class="step-number" :class="{ active: index + 1 <= active }">
         {{ index + 1 }}
       </div>
-      <label class="label-text" :class="{ labelActive: index <= active }">{{ step }}</label>
+      <label class="label-text" :class="{ labelActive: index + 1 <= active }">{{ step }}</label>
       <!-- Render lines to the next step if not the last item -->
 
       <!-- width of label text / 2 to full fill the line -->
@@ -22,7 +22,7 @@
           :class="{
             line: j !== 0 || j !== num_lines[index] - 1,
             rhombus: j === 0 || j === num_lines[index] - 1,
-            active: index <= active
+            active: index + 1 < active
           }"
         ></div>
       </div>

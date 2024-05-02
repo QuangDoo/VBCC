@@ -2,13 +2,13 @@
 import RefreshIcon from '@/assets/icons/RefreshIcon.vue'
 import SearchIcon from '@/assets/icons/SearchIcon.vue'
 import AuthenticationInput from '@/components/AuthenticationInput.vue'
+import ViewBox from '@/components/BoxView.vue'
 import ButtonApp from '@/components/Button/ButtonApp.vue'
 import CheckboxApp from '@/components/CheckboxApp.vue'
 import DateTimePicker from '@/components/DateTimePicker.vue'
 import InputApp from '@/components/InputApp.vue'
 import ResultSearchText from '@/components/ResultSearchText.vue'
 import TableApp, { type TableAppProps } from '@/components/TableApp.vue'
-import ViewBox from '@/components/ViewBox.vue'
 
 import { ref } from 'vue'
 
@@ -150,14 +150,16 @@ function handleClearYear() {
           v-model="year"
           year-picker
           @clear="handleClearYear"
+          placeholder="Chọn năm tốt nghiệp"
         />
+
         <InputApp
           label="Số hiệu văn bằng/chứng chỉ"
           placeholder="Nhập số hiệu văn bằng"
           :required="true"
         />
 
-        <AuthenticationInput />
+        <AuthenticationInput :maxLength="6" />
 
         <div class="checkbox">
           <CheckboxApp label="Tìm không dấu" checked />
@@ -168,13 +170,23 @@ function handleClearYear() {
         <div></div>
 
         <div class="actions">
-          <ButtonApp type="default" label="Tìm kiếm" style="padding: 8px 16px 8px 16px">
+          <ButtonApp
+            type="default"
+            label="Làm mới"
+            class="button-action"
+            style="padding: 8px 16px 8px 16px"
+          >
             <template #icon>
               <RefreshIcon />
             </template>
           </ButtonApp>
 
-          <ButtonApp type="primary" label="Tra cứu" style="padding: 8px 16px 8px 16px">
+          <ButtonApp
+            type="primary"
+            class="button-action"
+            label="Tra cứu"
+            style="padding: 8px 16px 8px 16px"
+          >
             <template #icon>
               <SearchIcon />
             </template>
@@ -195,17 +207,64 @@ function handleClearYear() {
 }
 .form {
   display: grid;
-  grid-template-columns: auto auto auto;
-  grid-gap: 30px;
+  grid-template-columns: auto;
+  gap: 12px;
 }
 .checkbox {
   display: flex;
-  gap: 40px;
+  gap: 0px;
+  justify-content: space-between;
 }
 .actions {
   display: flex;
-  align-items: end;
-  justify-content: end;
+  align-items: center;
+  justify-content: center;
   gap: 8px;
+}
+.button-action {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .form {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 12px;
+  }
+  .checkbox {
+    display: flex;
+    gap: 30px;
+  }
+  .actions {
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    gap: 8px;
+  }
+  .button-action {
+    width: unset;
+  }
+}
+
+@media (min-width: 1024px) {
+  .form {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 25px;
+  }
+  .checkbox {
+    display: flex !important;
+    gap: 30px !important;
+    justify-content: start;
+  }
+  .actions {
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    gap: 8px;
+  }
+  .button-action {
+    width: unset;
+  }
 }
 </style>

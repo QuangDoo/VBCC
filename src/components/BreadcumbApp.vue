@@ -24,14 +24,30 @@ const route = useRoute()
 <style scoped>
 .breadcumb {
   display: flex;
-  gap: 8px;
+  gap: 4px;
   align-items: center;
+  flex-wrap: wrap;
 }
 .breadcumb .breadcumb__link {
   text-decoration: none;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 12px;
   line-height: 24px;
   color: #494d51;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (min-width: 768px) {
+  .breadcumb .breadcumb__link {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .breadcumb .breadcumb__link {
+    font-size: 16px;
+  }
 }
 </style>
