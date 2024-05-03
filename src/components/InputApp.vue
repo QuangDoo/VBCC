@@ -41,7 +41,7 @@ function onChangeInput(event: Event) {
     <div class="label-container">
       <label :for="label" class="label">{{ label }}</label>
 
-      <span class="requeired" v-if="required">*</span>
+      <span class="requeired" style="font-size: 12px" v-if="required">*</span>
     </div>
 
     <div class="input-container" :class="{ focus: isFocus, error: error }">
@@ -70,6 +70,7 @@ function onChangeInput(event: Event) {
   gap: 1px;
 }
 .label {
+  flex-shrink: 0;
   font-size: 13px;
   font-weight: 600;
   margin-bottom: 8px;
@@ -105,17 +106,24 @@ function onChangeInput(event: Event) {
 }
 .error-text {
   color: #e02b1d;
-  font-size: 14px;
+  font-size: 12px;
+  margin-top: 4px;
 }
 
 @media (min-width: 768px) {
   .label {
     font-size: 15px;
   }
+  .error-text {
+    font-size: 15px;
+  }
 }
 
 @media (min-width: 1024px) {
   .label {
+    font-size: 16px;
+  }
+  .error-text {
     font-size: 16px;
   }
 }

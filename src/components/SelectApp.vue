@@ -3,7 +3,7 @@
     <div class="label-container">
       <label :for="label" class="label">{{ label }}</label>
 
-      <span class="requeired" v-if="required">*</span>
+      <span class="requeired" style="font-size: 12px" v-if="required">*</span>
     </div>
 
     <div class="select-wrapper">
@@ -50,7 +50,7 @@ defineProps<SelectAppProps>()
   gap: 1px;
 }
 .label {
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 600;
   margin-bottom: 8px;
 }
@@ -120,5 +120,32 @@ defineProps<SelectAppProps>()
   color: #333; /* Màu sắc của mũi tên */
   display: flex;
   align-items: center;
+}
+
+@media (min-width: 768px) {
+  .label {
+    font-size: 14px;
+  }
+  .error-text {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 768px) {
+  .label {
+    font-size: 15px;
+  }
+  .error-text {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .label {
+    font-size: 16px;
+  }
+  .error-text {
+    font-size: 16px;
+  }
 }
 </style>

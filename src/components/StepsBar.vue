@@ -12,7 +12,7 @@
         v-if="index < labels.length - 1"
         class="lines"
         :style="{
-          left: `${line_positions[index] - Math.floor(step_widths[index] / 2) + 35}px`,
+          left: `${line_positions[index] - Math.floor(step_widths[index] / 4) - 5}px`,
           width: `${gap_width[index]}px`
         }"
       >
@@ -31,7 +31,7 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, nextTick, onMounted, ref } from 'vue'
+import { nextTick, onMounted, ref } from 'vue'
 
 defineProps<{
   labels: string[]
@@ -56,7 +56,12 @@ function calculateGaps() {
     for (let i = 0; i < steps.length - 1; i++) {
       const endOfCurrent = steps[i].offsetLeft + steps[i].offsetWidth
       const startOfNext = steps[i + 1].offsetLeft
-      const gap = startOfNext - endOfCurrent - 20 + steps[i].offsetWidth / 2 // Adjusting for 10px on each side of the steps
+      const gap =
+        startOfNext -
+        endOfCurrent +
+        10 +
+        (steps[i].offsetWidth / 4 - 10) +
+        (steps[i + 1].offsetWidth / 4 - 10) // Adjusting for 10px on each side of the steps
       gap_width.value[i] = gap
       num_lines.value[i] = Math.floor(gap / 15) // Each line with 5px gap
       line_positions.value[i] = steps[i].offsetWidth + 10 // Starting position 10px from the edge of step-number
@@ -82,8 +87,8 @@ function calculateGaps() {
 }
 
 .step-number {
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   background-color: #d2d8df;
   color: white;
@@ -91,6 +96,7 @@ function calculateGaps() {
   align-items: center;
   justify-content: center;
   font-weight: bold;
+  font-size: 10px;
 }
 
 .active {
@@ -105,6 +111,9 @@ function calculateGaps() {
   margin-top: 8px;
   color: #d2d8df;
   white-space: wrap;
+  font-size: 11px;
+  max-width: 140px;
+  text-align: center;
 }
 
 .labelActive {
@@ -113,7 +122,7 @@ function calculateGaps() {
 
 .lines {
   position: absolute;
-  top: 20px;
+  top: 10px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -131,5 +140,37 @@ function calculateGaps() {
   height: 12px;
   background-color: #d2d8df;
   transform: rotate(45deg);
+}
+
+@media (min-width: 768px) {
+  .label-text {
+    font-size: 13px;
+    max-width: 100vw;
+  }
+  .step-number {
+    width: 40px;
+    height: 40px;
+    font-size: 12px;
+  }
+
+  .lines {
+    top: 15px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .label-text {
+    font-size: 14px;
+    max-width: 100vw;
+  }
+  .step-number {
+    width: 50px;
+    height: 50px;
+    font-size: 14px;
+  }
+
+  .lines {
+    top: 20px;
+  }
 }
 </style>

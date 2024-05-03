@@ -6,7 +6,7 @@
         <h2 class="footer__right-title">SỞ GIÁO DỤC VÀ ĐÀO TẠO BẾN TRE</h2>
 
         <address class="footer__right-text">
-          <AddressIcon />Địa chỉ liên hệ: 90a Nguyễn Thái Sơn, Phường 3, Thành phố Bến Tre
+          <AddressIcon />Địa chỉ: 90a Nguyễn Thái Sơn, Phường 3, Thành phố Bến Tre
         </address>
 
         <p class="footer__right-text"><MailIcon />Email: thuvienthptgovap@gmail.com</p>
@@ -43,6 +43,8 @@ import PhoneIcon from '@/assets/icons/PhoneIcon.vue'
   width: 100%;
   height: auto;
   flex-shrink: 0;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 .footer-container {
   display: flex;
@@ -77,11 +79,11 @@ import PhoneIcon from '@/assets/icons/PhoneIcon.vue'
   gap: 8px;
 }
 .footer__right-title {
-  font-size: 20px;
+  font-size: 14px;
   font-weight: 700;
 }
 .footer__right-text {
-  font-size: 14px;
+  font-size: 10px;
   font-family: 400;
   display: inline-flex;
   gap: 8px;
@@ -96,11 +98,11 @@ import PhoneIcon from '@/assets/icons/PhoneIcon.vue'
   gap: 10px;
 }
 .footer__left-left {
-  font-size: 13px;
+  font-size: 10px;
   gap: 8px;
 }
 .footer__copyright {
-  font-size: 14px;
+  font-size: 10px;
   color: #ffffff;
   opacity: 0.6;
   text-align: center;
@@ -114,19 +116,47 @@ import PhoneIcon from '@/assets/icons/PhoneIcon.vue'
     align-items: center;
   }
 
+  .footer__right-text {
+    font-size: 12px;
+  }
+
+  .footer__right-title {
+    font-size: 18px;
+  }
+
   .footer__left-left {
     font-size: 14px;
     gap: 8px;
   }
+
+  .footer__copyright {
+    font-size: 12px;
+  }
+  .footer__left-left {
+    font-size: 12px;
+  }
 }
 
 @media (min-width: 1024px) {
+  .footer__right-title {
+    font-size: 20px;
+  }
   .button-label {
     font-size: 16px;
   }
   .footer__left-left {
     font-size: 16px;
     gap: 8px;
+  }
+  .footer__copyright {
+    font-size: 14px;
+  }
+  .footer__right-text {
+    font-size: 14px;
+  }
+
+  .footer__left-left {
+    font-size: 14px;
   }
 }
 </style>

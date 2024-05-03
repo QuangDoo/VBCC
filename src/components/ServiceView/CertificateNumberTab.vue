@@ -7,6 +7,7 @@
           placeholder="Chọn năm tốt nghiệp"
           required
           year-picker
+          picker="year"
         />
 
         <div class="input">
@@ -59,24 +60,59 @@ import CheckboxApp from '../CheckboxApp.vue'
 }
 .form {
   display: grid;
-  grid-template-columns: auto auto;
-  grid-gap: 30px;
+  grid-template-columns: auto;
+  grid-gap: 12px;
 }
 .actions {
   display: flex;
   align-items: end;
+  justify-content: end;
   gap: 4px;
 }
 .input {
   display: flex;
-  gap: 8px;
+  gap: 12px;
+  flex-direction: column;
 }
 .button {
   padding: 8px 16px 8px 16px;
   height: 40px;
+  width: 100%;
 }
 .checkbox {
   display: flex;
-  gap: 30px;
+  /* gap: 30px; */
+  justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+  .form {
+    grid-template-columns: auto auto;
+    grid-gap: 20px;
+  }
+  .button {
+    width: unset;
+  }
+
+  .checkbox {
+    display: flex;
+    gap: 30px;
+    justify-content: flex-start !important;
+  }
+}
+
+@media (min-width: 1280px) {
+  .input {
+    flex-direction: row;
+  }
+  .button {
+    width: unset;
+  }
+
+  .checkbox {
+    display: flex;
+    gap: 30px;
+    justify-content: flex-start !important;
+  }
 }
 </style>

@@ -5,7 +5,7 @@
     </template>
   </TitleApp>
 
-  <StepsBar :labels="steps" :active="1" style="margin: 20px 0px" />
+  <StepsBar :labels="steps" :active="2" style="margin: 20px 0px" />
 
   <TabsApp :items="tabs" />
 

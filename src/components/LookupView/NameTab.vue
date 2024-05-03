@@ -2,20 +2,14 @@
   <div class="name-tab">
     <ViewBox>
       <form class="form">
-        <DateTimePicker label="Năm tốt nghiệp" required v-model="year" year-picker />
+        <DateTimePicker label="Năm tốt nghiệp" required v-model="year" picker="year" />
         <SelectApp label="Trường" required :options="options" />
 
         <InputApp label="Họ và tên" required placeholder="Nhập họ và tên" />
 
-        <DateTimePicker
-          label="Ngày sinh"
-          placeholder="Chọn ngày sinh"
-          required
-          v-model="date"
-          date-picker
-        />
+        <DateTimePicker label="Ngày sinh" placeholder="Chọn ngày sinh" required v-model="date" />
 
-        <InputApp label="Họ và tên" required placeholder="Nhập họ và tên" />
+        <AuthenticationInput />
 
         <div></div>
 
@@ -25,16 +19,26 @@
           <CheckboxApp label="Tìm chính xác" checked />
         </div>
 
-        <div></div>
+        <div class="hide"></div>
 
         <div class="actions">
-          <ButtonApp type="default" label="Tìm kiếm" style="padding: 8px 16px 8px 16px">
+          <ButtonApp
+            type="default"
+            class="button"
+            label="Tìm kiếm"
+            style="padding: 8px 16px 8px 16px"
+          >
             <template #icon>
               <RefreshIcon />
             </template>
           </ButtonApp>
 
-          <ButtonApp type="primary" label="Tra cứu" style="padding: 8px 16px 8px 16px">
+          <ButtonApp
+            type="primary"
+            class="button"
+            label="Tra cứu"
+            style="padding: 8px 16px 8px 16px"
+          >
             <template #icon>
               <SearchIcon />
             </template>
@@ -52,6 +56,7 @@
 <script setup lang="ts">
 import RefreshIcon from '@/assets/icons/RefreshIcon.vue'
 import SearchIcon from '@/assets/icons/SearchIcon.vue'
+import ViewBox from '@/components/BoxView.vue'
 import ButtonApp from '@/components/Button/ButtonApp.vue'
 import CheckboxApp from '@/components/CheckboxApp.vue'
 import DateTimePicker from '@/components/DateTimePicker.vue'
@@ -60,8 +65,8 @@ import ResultSearchText from '@/components/ResultSearchText.vue'
 import SelectApp from '@/components/SelectApp.vue'
 import type { TableAppProps } from '@/components/TableApp.vue'
 import TableApp from '@/components/TableApp.vue'
-import ViewBox from '@/components/BoxView.vue'
 import { ref } from 'vue'
+import AuthenticationInput from '../AuthenticationInput.vue'
 
 const year = ref(new Date().getFullYear())
 const date = ref(new Date())
@@ -102,8 +107,8 @@ const options = [{ value: '1', label: 'Trường tại giáo dưỡng dành cho 
 }
 .form {
   display: grid;
-  grid-template-columns: auto auto auto;
-  grid-gap: 30px;
+  grid-template-columns: auto;
+  grid-gap: 8px;
 }
 .checkbox {
   display: flex;
@@ -111,8 +116,47 @@ const options = [{ value: '1', label: 'Trường tại giáo dưỡng dành cho 
 }
 .actions {
   display: flex;
-  align-items: end;
-  justify-content: end;
+  align-items: center;
+  justify-content: space-between;
   gap: 8px;
+}
+.button {
+  width: 100%;
+}
+
+.hide {
+  visibility: hidden;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .form {
+    grid-template-columns: auto auto;
+  }
+  .button {
+    width: unset;
+  }
+  .actions {
+    justify-content: flex-end;
+    gap: 8px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .form {
+    grid-template-columns: auto auto auto;
+  }
+  .button {
+    width: unset;
+  }
+
+  .actions {
+    justify-content: flex-end;
+    gap: 8px;
+  }
+  .hide {
+    visibility: visible;
+    display: block;
+  }
 }
 </style>

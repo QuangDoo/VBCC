@@ -51,6 +51,8 @@ function toggleModal() {
 <style scoped>
 .header {
   background-image: linear-gradient(to right, #11277c, #0000c5);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .header__right {

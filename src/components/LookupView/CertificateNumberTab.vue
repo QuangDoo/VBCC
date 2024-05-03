@@ -151,6 +151,7 @@ function handleClearYear() {
           year-picker
           @clear="handleClearYear"
           placeholder="Chọn năm tốt nghiệp"
+          picker="year"
         />
 
         <InputApp
