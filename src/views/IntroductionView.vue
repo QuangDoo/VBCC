@@ -5,18 +5,9 @@
 
   <div class="introduce-container">
     <main class="main-content">
-      <ul>
-        <li>Item 1</li>
-        <li>Item 2</li>
-        <li>Item 3</li>
-        <li>Item 3</li>
-        <li>Item 1</li>
-        <li>Item 2</li>
-        <li>Item 3</li>
-
-        <li>Item 2</li>
-        <li>Item 3</li>
-      </ul>
+      <div v-for="i in 20" :key="i">
+        <CardItem />
+      </div>
     </main>
     <div class="main-container">
       <aside class="aside">
@@ -34,6 +25,14 @@
           <li>Item 3</li>
           <li>Item 3</li>
           <li>Item 3</li>
+          <li>Item 1</li>
+          <li>Item 2</li>
+          <li>Item 3</li>
+          <li>Item 3</li>
+          <li>Item 3</li>
+          <li>Item 3</li>
+          <li>Item 3</li>
+          <li>Item 3</li>
         </ul>
       </aside>
     </div>
@@ -43,6 +42,7 @@
 <script setup lang="ts">
 import NewsIcon from '@/assets/icons/NewsIcon.vue'
 import BreadcumbApp from '@/components/BreadcumbApp.vue'
+import CardItem from '@/components/CardItem.vue'
 import TitleApp from '@/components/TitleApp.vue'
 </script>
 
@@ -64,17 +64,17 @@ import TitleApp from '@/components/TitleApp.vue'
   flex-direction: column;
   flex-grow: 1;
   overflow-y: auto;
-  border: 5px solid #f3f3f3;
   height: max-content;
 }
 .introduce-container {
-  display: flex;
+  display: grid;
   margin-top: 16px;
+  grid-template-columns: auto;
+  gap: 16px;
 }
 .main-content {
-  flex: 2; /* Takes up remaining space */
-}
-.sidebar {
-  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 </style>
