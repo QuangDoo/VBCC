@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <RouterLink to="/news/123" style="text-decoration: none">
     <BoxView class="card-item">
       <div class="card-item-image-container">
         <img
@@ -28,10 +28,11 @@
         </p>
       </div>
     </BoxView>
-  </div>
+  </RouterLink>
 </template>
 
 <script setup lang="ts">
+import { RouterLink } from 'vue-router'
 import BoxView from './BoxView.vue'
 import DateLabel from './DateLabel.vue'
 </script>
@@ -72,6 +73,7 @@ import DateLabel from './DateLabel.vue'
   -webkit-line-clamp: 2; /* number of lines to show */
   line-clamp: 2;
   -webkit-box-orient: vertical;
+  color: #333333;
 }
 @media (min-width: 640px) {
   .card-item-description {
@@ -84,9 +86,9 @@ import DateLabel from './DateLabel.vue'
 
 @media (min-width: 768px) {
   .card-item-description {
-    font-size: 16px;
-    -webkit-line-clamp: 4; /* number of lines to show */
-    line-clamp: 4;
+    font-size: 14px;
+    -webkit-line-clamp: 3; /* number of lines to show */
+    line-clamp: 3;
     -webkit-box-orient: vertical;
   }
   .date {
@@ -103,17 +105,29 @@ import DateLabel from './DateLabel.vue'
   }
 }
 
+@media (min-width: 1024px) {
+  .card-item-image-container {
+    padding-top: 16.25%;
+    width: 60%;
+  }
+  .card-item-description {
+    font-size: 14px;
+    -webkit-line-clamp: 3; /* number of lines to show */
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+}
+
 @media (min-width: 1280px) {
   .card-item-image-container {
     padding-top: 16.25%;
     width: 60%;
   }
-}
-
-@media (min-width: 1536px) {
-  .card-item-image-container {
-    padding-top: 19.25%;
-    width: 60%;
+  .card-item-description {
+    font-size: 16px;
+    -webkit-line-clamp: 4; /* number of lines to show */
+    line-clamp: 4;
+    -webkit-box-orient: vertical;
   }
 }
 </style>

@@ -19,7 +19,11 @@
 
         <div class="news-item">
           <div v-for="i in 20" :key="i">
-            <NewsItem />
+            <NewsItem
+              :title="'Tổ chức tập huấn phần mềm Thư viện số - Tháng 5/2023'"
+              :content="'Buổi tập huấn bao gồm các nội dung sau: - Cán bộ thư viện chuẩn.'"
+              :publishedDate="new Date().toISOString()"
+            />
           </div>
         </div>
       </aside>
@@ -39,13 +43,6 @@ import TitleApp from '@/components/TitleApp.vue'
 .breadcumb {
   margin-bottom: 18px;
 }
-/* .aside {
-  border: 5px solid #f3f3f3;
-  padding-left: 24px;
-  border-bottom: 0px;
-  border-top: 0px;
-  border-right: 0px;
-} */
 
 .main-container {
   flex: 1;
@@ -72,5 +69,22 @@ import TitleApp from '@/components/TitleApp.vue'
   flex-direction: column;
   gap: 8px;
   margin-top: 12px;
+}
+
+@media (min-width: 1024px) {
+  .introduce-container {
+    display: grid;
+    margin-top: 16px;
+    grid-template-columns: 75% 25%;
+    gap: 16px;
+  }
+
+  .aside {
+    border: 2px solid #f3f3f3;
+    padding-left: 24px;
+    border-bottom: 0px;
+    border-top: 0px;
+    border-right: 0px;
+  }
 }
 </style>
