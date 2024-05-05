@@ -16,24 +16,12 @@
             <NewsIcon />
           </template>
         </TitleApp>
-        <ul>
-          <li>Item 1</li>
-          <li>Item 2</li>
-          <li>Item 3</li>
-          <li>Item 3</li>
-          <li>Item 3</li>
-          <li>Item 3</li>
-          <li>Item 3</li>
-          <li>Item 3</li>
-          <li>Item 1</li>
-          <li>Item 2</li>
-          <li>Item 3</li>
-          <li>Item 3</li>
-          <li>Item 3</li>
-          <li>Item 3</li>
-          <li>Item 3</li>
-          <li>Item 3</li>
-        </ul>
+
+        <div class="news-item">
+          <div v-for="i in 20" :key="i">
+            <NewsItem />
+          </div>
+        </div>
       </aside>
     </div>
   </div>
@@ -43,6 +31,7 @@
 import NewsIcon from '@/assets/icons/NewsIcon.vue'
 import BreadcumbApp from '@/components/BreadcumbApp.vue'
 import CardItem from '@/components/CardItem.vue'
+import NewsItem from '@/components/NewsItem.vue'
 import TitleApp from '@/components/TitleApp.vue'
 </script>
 
@@ -50,13 +39,13 @@ import TitleApp from '@/components/TitleApp.vue'
 .breadcumb {
   margin-bottom: 18px;
 }
-.aside {
+/* .aside {
   border: 5px solid #f3f3f3;
   padding-left: 24px;
   border-bottom: 0px;
   border-top: 0px;
   border-right: 0px;
-}
+} */
 
 .main-container {
   flex: 1;
@@ -76,5 +65,12 @@ import TitleApp from '@/components/TitleApp.vue'
   display: flex;
   flex-direction: column;
   gap: 12px;
+}
+
+.news-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
 }
 </style>

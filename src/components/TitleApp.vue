@@ -75,8 +75,9 @@ const { title, hasUnderline } = withDefaults(defineProps<TitleProps>(), {
 }
 .divider {
   width: 100%;
-  height: 5px;
+  height: 2px;
   background-color: #102bba;
+  margin-top: 2px;
 }
 
 @media (min-width: 768px) {

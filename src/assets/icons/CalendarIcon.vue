@@ -1,5 +1,5 @@
 <template>
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="calendar">
     <path
       fill-rule="evenodd"
       clip-rule="evenodd"
@@ -9,6 +9,30 @@
   </svg>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+withDefaults(defineProps<{ width?: number; height?: number }>(), {
+  width: 24,
+  height: 24
+})
+</script>
 
-<style scoped></style>
+<style scoped>
+.calendar {
+  width: 14px;
+  height: 14px;
+}
+
+@media (min-width: 768px) {
+  .calendar {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .calendar {
+    width: 24px;
+    height: 24px;
+  }
+}
+</style>

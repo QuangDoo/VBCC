@@ -12,10 +12,7 @@
       <div style="display: flex; flex-direction: column; gap: 8px">
         <p class="text card-item-title">Tổ chức tập huấn phần mềm Thư viện số - Tháng 5/2023</p>
 
-        <div style="display: flex; gap: 4px; align-items: center">
-          <CalendarIcon />
-          <span class="date">{{ formatDate(new Date()) }}</span>
-        </div>
+        <DateLabel :date="new Date()" />
 
         <p
           class="card-item-description"
@@ -35,9 +32,8 @@
 </template>
 
 <script setup lang="ts">
-import CalendarIcon from '@/assets/icons/CalendarIcon.vue'
 import BoxView from './BoxView.vue'
-import { formatDate } from '../utils'
+import DateLabel from './DateLabel.vue'
 </script>
 
 <style scoped>
